@@ -9,6 +9,32 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
+// Create the navigator
+const Stack = createStackNavigator();
+
+export default class App extends Component {
+
+  render() {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Screen1"
+        >
+          <Stack.Screen
+            name="Screen1"
+            component={Screen1}
+          />
+          <Stack.Screen
+              name="Screen2"
+              component={Screen2}
+            />
+          </Stack.Navigator>
+      </NavigationContainer>
+    );
+  }
+}
+
+/* TEMPLATE Initial code
 export default function App() {
   return (
     <View style={styles.container}>
@@ -24,4 +50,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+}); */
