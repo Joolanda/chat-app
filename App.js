@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-// import the screens
-import Screen1 from './components/Screen1';
-import Screen2 from './components/Screen2';
+// import the screens we want to navigate
+import Start from './components/Start';
+import Chat from './components/Chat';
 // import react native gesture handler
 import 'react-native-gesture-handler';
 // import react Navigation
@@ -18,15 +18,15 @@ export default class App extends Component {
     return (
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Screen1"
+          initialRouteName="Start"
         >
           <Stack.Screen
-            name="Screen1"
-            component={Screen1}
+            name="Start"
+            component={Start}
           />
           <Stack.Screen
-              name="Screen2"
-              component={Screen2}
+              name="Chat"
+              component={Chat}
             />
           </Stack.Navigator>
       </NavigationContainer>
