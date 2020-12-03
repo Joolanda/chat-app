@@ -18,10 +18,12 @@ export default class App extends Component {
     return (
       <NavigationContainer>
         <Stack.Navigator
+          //First screen to load upon launching the app - value has to be one of the Stack.Screen-s
           initialRouteName="Start"
         >
           <Stack.Screen
-            name="Start"
+            // Name doesn't have to match the component's name
+            name="Home"
             component={Start}
           />
           <Stack.Screen
