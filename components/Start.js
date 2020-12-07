@@ -1,7 +1,7 @@
 import React from 'react';
 import { ImageBackground, View, Text, Button, TextInput, StyleSheet } from 'react-native';
 // The application’s Start component that renders the openings-screen UI export default class Start extends Component {...
-const image = require('.assets/background-image.png');
+const image = require('../assets/background-image.png');
 
 export default class Start extends React.Component {
   constructor(props) {
@@ -12,7 +12,7 @@ export default class Start extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ImageBackground source={image} style={styles.image}>
+        <ImageBackground source={image} style={styles.backgroundImage}>
         <Text style={styles.title}>Chat App!</Text>
         <TextInput 
           style={styles.box3}
@@ -37,6 +37,13 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center'
   },
+  backgroundImage: {
+    flex:1,
+    alignItems: 'center',
+    width: '100%',
+    height: '100%',
+    },
+
   title: {
     flex:10,
     fontSize:45,
