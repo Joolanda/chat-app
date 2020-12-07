@@ -21,7 +21,7 @@ export default class Start extends React.Component {
           value={this.state.text}
           placeholder='Your Name'
         />        
-        <Button style={styles.box4}
+        <Button style={styles.startButton}
           title="Start Chatting"
           onPress={() => this.props.navigation.navigate('Chat')}
         />
@@ -59,13 +59,13 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderWidth: 1
   },
-  box4: {
+  startButton: {
     flex:1,
     fontSize:16,
     fontWeight:'600',
     color: '#FFFFFF',
-    width:50,
-    height: 50,
-    //backgroundColor:'#757083',
+    width:200,
+    height: 20,
+    backgroundColor:'#757083',
   },
 });
