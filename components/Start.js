@@ -21,11 +21,15 @@ export default class Start extends React.Component {
           value={this.state.text}
 
           placeholder='Your Name'
-        />        
-        <Button style={styles.startButton}
-          title="Start Chatting"
-          onPress={() => this.props.navigation.navigate('Chat')}
-        />
+        />  
+        <View style={styles.startButton}>     
+        {/* <Button style={styles.buttonText} */}
+         <Text style={styles.buttonText}
+            onPress={() => this.props.navigation.navigate('Chat')}>Start Chatting</Text>
+          {/* title="Start Chatting" */}
+          {/* onPress={() => this.props.navigation.navigate('Chat', { })}
+        /> */}
+        </View>  
       </View>
      </ImageBackground>  
     )
@@ -68,12 +72,17 @@ const styles = StyleSheet.create({
   },
   startButton: {
     flex:1,
-    fontSize:16,
-    fontWeight:'600',
-    color: '#FFFFFF',
     backgroundColor:'#757083',
     width:'88%',
     height: 20,
     marginBottom: 30
   },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#fff',
+    alignSelf: 'center',
+    marginTop: 10,
+
+  }
 });
