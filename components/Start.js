@@ -19,7 +19,7 @@ export default class Start extends React.Component {
           style={styles.nameBox}
           onChangeText={(text) => this.setState({text})}
           value={this.state.text}
-          
+
           placeholder='Your Name'
         />        
         <Button style={styles.startButton}
