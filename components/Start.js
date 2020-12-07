@@ -6,7 +6,7 @@ const image = require('../assets/background-image.png');
 export default class Start extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { text: '', backgroundColor:'' };
+    this.state = { text: '', backgroundColor:'#fff' };
   }
 
   render() {
@@ -16,9 +16,10 @@ export default class Start extends React.Component {
        <View style={styles.container}>
         <Text style={styles.title}>Chat App!</Text>
         <TextInput 
-          style={styles.box3}
+          style={styles.nameBox}
           onChangeText={(text) => this.setState({text})}
           value={this.state.text}
+          
           placeholder='Your Name'
         />        
         <Button style={styles.startButton}
@@ -36,7 +37,10 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent: 'center',
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    width: '88%',
+    height: '44%',
+    marginBottom: 30
   },
   backgroundImage: {
     flex:1,
@@ -51,12 +55,15 @@ const styles = StyleSheet.create({
     fontWeight:'600',
     color:'#FFFFFF',
     alignSelf: 'center',
+    marginTop: 60,
   },
-  box3: {
+  nameBox: {
     flex: 1,
-    width:200,
+    width:'88%',
     height: 20,
     borderColor: 'gray',
+    borderWidth: 1.5,
+    opacity: 50,
     borderWidth: 1
   },
   startButton: {
@@ -64,8 +71,9 @@ const styles = StyleSheet.create({
     fontSize:16,
     fontWeight:'600',
     color: '#FFFFFF',
-    width:200,
-    height: 20,
     backgroundColor:'#757083',
+    width:'88%',
+    height: 20,
+    marginBottom: 30
   },
 });
