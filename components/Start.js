@@ -11,8 +11,9 @@ export default class Start extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <ImageBackground source={image} style={styles.backgroundImage}>
+    // Setting the background image to cover the whole screen 
+      <ImageBackground source={image} style={styles.backgroundImage}>
+       <View style={styles.container}>
         <Text style={styles.title}>Chat App!</Text>
         <TextInput 
           style={styles.box3}
@@ -24,8 +25,8 @@ export default class Start extends React.Component {
           title="Start Chatting"
           onPress={() => this.props.navigation.navigate('Chat')}
         />
-        </ImageBackground>
       </View>
+     </ImageBackground>  
     )
   }
 }
