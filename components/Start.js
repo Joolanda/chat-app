@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     flex:1,
     backgroundColor:'#757083',
     width:'88%',
-    height: 20,
+    height: 40,
     marginBottom: 30
   },
   buttonText: {
