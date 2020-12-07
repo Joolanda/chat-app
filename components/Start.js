@@ -1,14 +1,18 @@
 import React from 'react';
-import { View, Text, Button, TextInput, StyleSheet } from 'react-native';
+import { ImageBackground, View, Text, Button, TextInput, StyleSheet } from 'react-native';
 // The application’s Start component that renders the openings-screen UI export default class Start extends Component {...
+const image = require('.assets/background-image.png');
+
 export default class Start extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { text: '', backgroundColor:'#757083' };
+    this.state = { text: '', backgroundColor:'' };
   }
+
   render() {
     return (
       <View style={styles.container}>
+        <ImageBackground source={image} style={styles.image}>
         <Text style={styles.title}>Chat App!</Text>
         <TextInput 
           style={styles.box3}
@@ -20,6 +24,7 @@ export default class Start extends React.Component {
           title="Start Chatting"
           onPress={() => this.props.navigation.navigate('Chat')}
         />
+        </ImageBackground>
       </View>
     )
   }
