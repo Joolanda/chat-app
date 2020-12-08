@@ -74,7 +74,11 @@ const styles = StyleSheet.create({
     opacity: 50,
     borderWidth: 1
   },
-
+  text: {
+    fontSize: 16,
+    fontWeight: '300',
+    color:'#757083,'
+  },
   startChattingButton: {
     flex:1,
     backgroundColor:'#757083',
