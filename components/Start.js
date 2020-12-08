@@ -21,8 +21,13 @@ export default class Start extends React.Component {
           value={this.state.text}
 
           placeholder='Your Name'
-        />  
-        <View style={styles.startButton}>     
+        /> 
+         {/* users can choose a background color for chatting page */}
+        <Text style={styles.text}>Choose Background Color:</Text>
+        <View style={styles.colorButtons}>
+
+        </View>
+        <View style={styles.startChatttingButton}>     
         {/* <Button style={styles.buttonText} */}
          <Text style={styles.buttonText}
             onPress={() => this.props.navigation.navigate('Chat')}>Start Chatting</Text>
@@ -52,7 +57,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     },
-
   title: {
     flex:10,
     fontSize:45,
@@ -64,13 +68,14 @@ const styles = StyleSheet.create({
   nameBox: {
     flex: 1,
     width:'88%',
-    height: 20,
+    height: 80,
     borderColor: 'gray',
     borderWidth: 1.5,
     opacity: 50,
     borderWidth: 1
   },
-  startButton: {
+
+  startChattingButton: {
     flex:1,
     backgroundColor:'#757083',
     width:'88%',
