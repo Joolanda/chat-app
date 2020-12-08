@@ -22,12 +22,15 @@ export default class Start extends React.Component {
 
           placeholder='Your Name'
         /> 
+        <View style={styles.colorSelectionButtons}>
          {/* users can choose a background color for chatting page */}
-        <Text style={styles.text}>Choose Background Color:</Text>
-        <View style={styles.colorButtons}>
-
+          <Text style={styles.textColorSelection}>Choose Background Color:</Text>
+            <View styles={styles.colorButton, styles.color1}></View>
+            <View styles={styles.colorButton, styles.color2}></View>
+            <View styles={styles.colorButton, styles.color3}></View>
+            <View styles={styles.colorButton, styles.color4}></View>
         </View>
-        <View style={styles.startChatttingButton}>     
+        <View style={styles.startChattingButton}>     
         {/* <Button style={styles.buttonText} */}
          <Text style={styles.buttonText}
             onPress={() => this.props.navigation.navigate('Chat')}>Start Chatting</Text>
@@ -74,16 +77,34 @@ const styles = StyleSheet.create({
     opacity: 50,
     borderWidth: 1
   },
-  text: {
+  colorSelectionButtons: {
+    flex: 4,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    margin: 15
+  },
+  colorButton: {
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+  },
+  color1: {
+    backgroundColor: '#090C08',
+  },
+  textColorSelection: {
     fontSize: 16,
     fontWeight: '300',
-    color:'#757083,'
+    color:'#757083',
+    opacity: 100,
+    alignSelf: 'flex-start',
+    marginBottom: 10,
   },
   startChattingButton: {
     flex:1,
     backgroundColor:'#757083',
     width:'88%',
-    height: 40,
+    height: 50,
     marginBottom: 30
   },
   buttonText: {
@@ -91,7 +112,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#fff',
     alignSelf: 'center',
-    marginTop: 10,
-
+    margin: 5,
   }
 });
