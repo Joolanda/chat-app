@@ -22,13 +22,13 @@ export default class Start extends React.Component {
 
           placeholder='Your Name'
         /> 
-        <View style={styles.colorSelectionButtons}>
+        <Text style={styles.textColorSelection}>Choose Background Color:</Text>
+        <View style={styles.colorSelection}>
          {/* users can choose a background color for chatting page */}
-          <Text style={styles.textColorSelection}>Choose Background Color:</Text>
-            <View styles={styles.colorButton, styles.color1}></View>
-            <View styles={styles.colorButton, styles.color2}></View>
-            <View styles={styles.colorButton, styles.color3}></View>
-            <View styles={styles.colorButton, styles.color4}></View>
+            <View style={{height: 50, width: 50, borderRadius: 25, backgroundColor:'#090C08'}}></View>
+            <View style={{height: 50, width: 50, borderRadius: 25, backgroundColor:'#090C08'}}></View>
+            <View style={{height: 50, width: 50, borderRadius: 25, backgroundColor:'#090C08'}}></View>
+            <View style={{height: 50, width: 50, borderRadius: 25, backgroundColor:'#090C08'}}></View>
         </View>
         <View style={styles.startChattingButton}>     
         {/* <Button style={styles.buttonText} */}
@@ -77,11 +77,10 @@ const styles = StyleSheet.create({
     opacity: 50,
     borderWidth: 1
   },
-  colorSelectionButtons: {
+  colorSelection: {
     flex: 4,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-start',
     margin: 15
   },
   colorButton: {
