@@ -6,7 +6,7 @@ const icon = require('../assets/icon.svg');
 export default class Start extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { name: '', backgroundColor:'#fff' };
+    this.state = { name: '', backgroundColor:'color3' };
   }
 
   render() {
@@ -26,15 +26,15 @@ export default class Start extends React.Component {
         </View>
         <View style={styles.colorSelection}>
          {/* users can choose a background color for chatting page */}
-            <View style={[styles.colorButton, styles.color1]}></View>
-            <View style={{height: 50, width: 50, borderRadius: 25, backgroundColor:'#474056'}}></View>
-            <View style={{height: 50, width: 50, borderRadius: 25, backgroundColor:'#8A95A5'}}></View>
-            <View style={{height: 50, width: 50, borderRadius: 25, backgroundColor:'#B9C6AE'}}></View>
+            <View onPress={() => this.setState({color: '#090C08'})} style={[styles.colorButton, styles.color1]}></View>
+            <View onPress={() => this.setState({color: '#474056'})} style={[styles.colorButton, styles.color2]}></View>
+            <View onPress={() => this.setState({color: '#8A95A5'})} style={[styles.colorButton, styles.color3]}></View>
+            <View onPress={() => this.setState({color: '#B9C6AE'})} style={[styles.colorButton, styles.color4]}></View>
         </View>
         <View style={styles.startChattingButton}>     
         {/* <Button style={styles.buttonText} */}
          <Text style={styles.buttonText}
-            onPress={() => this.props.navigation.navigate('Chat', { name: this.state.name})}>Start Chatting</Text>
+            onPress={() => this.props.navigation.navigate('Chat', { name: this.state.name, color: this.state.color})}>Start Chatting</Text>
               {/* display user's name in the navigation bar at the top of the chat screen */}
           {/* title="Start Chatting" */}
           {/* onPress={() => this.props.navigation.navigate('Chat', { })}
