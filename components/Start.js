@@ -6,41 +6,49 @@ const icon = require('../assets/icon.svg');
 export default class Start extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { name: '', backgroundColor:'color3' };
+    this.state = { name: '', color:'#B9C6AE' };
   }
 
   render() {
     return (
     // Setting the background image to cover the whole screen 
       <ImageBackground source={image} style={styles.backgroundImage}>
-       <View style={styles.container}>
-        <Text style={styles.title}>Chat App!</Text>
-        <TextInput 
+       <Text style={styles.title}>Chat App!
+       </Text>
+        <View style={styles.container}>
+          <TextInput 
           style={styles.nameBox}
           onChangeText={(name) => this.setState({name})}
           value={this.state.name}
           placeholder='Your Name'
-        /> 
-        <View style={{margin: 10,alignItems: 'flex-start'}}>
-          <Text style={{alignContent: 'flex-start', fontSize:16, fontWeight: '300', color: '#757083', opacity: 100. }}>Choose Background Color:</Text>
+          /> 
+          <Text style={{ alignSelf: 'center', width: '88%', marginBottom: 10, fontSize:16, fontWeight: '300', color: '#757083', opacity: 100 }}>Choose Background Color:
+          </Text>
+          <View style={styles.colorSelection}>
+            {/* users can choose a background color for chatting page */}
+            <View 
+              onPress={() => this.setState({color: '#090C08'})} 
+              style={[styles.colorButton, styles.color1]}></View>
+            <View 
+              onPress={() => this.setState({color: '#474056'})} 
+              style={[styles.colorButton, styles.color2]}></View>
+            <View 
+              onPress={() => this.setState({color: '#8A95A5'})} 
+              style={[styles.colorButton, styles.color3]}></View>
+            <View 
+              onPress={() => this.setState({color: '#B9C6AE'})} 
+              style={[styles.colorButton, styles.color4]}></View>
+          </View>
+          <View style={styles.startChattingButton}>     
+            {/* <Button style={styles.buttonText} */}
+          <Button 
+           style={styles.buttonText}
+            onPress={() => this.props.navigation.navigate('Chat', { name: this.state.name, color: this.state.color})}
+           title="Start Chatting"
+          />
+          {/* display user's name in the navigation bar at the top of the chat screen */}
+          </View>  
         </View>
-        <View style={styles.colorSelection}>
-         {/* users can choose a background color for chatting page */}
-            <View onPress={() => this.setState({color: '#090C08'})} style={[styles.colorButton, styles.color1]}></View>
-            <View onPress={() => this.setState({color: '#474056'})} style={[styles.colorButton, styles.color2]}></View>
-            <View onPress={() => this.setState({color: '#8A95A5'})} style={[styles.colorButton, styles.color3]}></View>
-            <View onPress={() => this.setState({color: '#B9C6AE'})} style={[styles.colorButton, styles.color4]}></View>
-        </View>
-        <View style={styles.startChattingButton}>     
-        {/* <Button style={styles.buttonText} */}
-         <Text style={styles.buttonText}
-            onPress={() => this.props.navigation.navigate('Chat', { name: this.state.name, color: this.state.color})}>Start Chatting</Text>
-              {/* display user's name in the navigation bar at the top of the chat screen */}
-          {/* title="Start Chatting" */}
-          {/* onPress={() => this.props.navigation.navigate('Chat', { })}
-        /> */}
-        </View>  
-      </View>
      </ImageBackground>  
     )
   }
@@ -49,6 +57,7 @@ export default class Start extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex:1,
+    backgroundColor: '#fff',
     justifyContent: 'center',
     flexDirection: 'column',
     alignItems: 'center',
@@ -63,7 +72,7 @@ const styles = StyleSheet.create({
     height: '100%',
     },
   title: {
-    flex:10,
+    flex:1,
     fontSize:45,
     fontWeight:'600',
     color:'#FFFFFF',
@@ -71,13 +80,18 @@ const styles = StyleSheet.create({
     marginTop: 60,
   },
   nameBox: {
-    flex: 2,
+    fontSize: 16,
+    fontWeight: '300',
     width:'88%',
-    height: 80,
+    height: 55,
     borderColor: 'gray',
+    marginTop: 20,
+    marginBottom: 20,
     borderWidth: 1.5,
+    borderRadius: 3,
     opacity: 50,
     borderWidth: 1,
+
     marginBottom: 20
   },
   colorSelection: {
@@ -86,12 +100,13 @@ const styles = StyleSheet.create({
     height: 50,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'flex-start',
     marginBottom: 10
   },
   colorButton: {
-    height: 50,
-    width: 50,
-    borderRadius: 25,
+    height: 40,
+    width: 40,
+    borderRadius: 20,
   },
   color1: {
     backgroundColor: '#090C08',
@@ -113,7 +128,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   startChattingButton: {
-    flex:2,
     backgroundColor:'#757083',
     width:'88%',
     height: 50,
@@ -122,8 +136,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#fff',
     alignSelf: 'center',
-    margin: 15,
+    margin: 5,
   }
 });
