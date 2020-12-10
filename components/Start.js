@@ -1,17 +1,18 @@
 import React from 'react';
-import { ImageBackground, View, Text, Button, TextInput, StyleSheet } from 'react-native';
+import { ImageBackground, View, Text, Button, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 // The application’s Start component that renders the openings-screen UI export default class Start extends Component {...
 const image = require('../assets/background-image.png');
 const icon = require('../assets/icon.svg');
 export default class Start extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { name: '', color:'#B9C6AE' };
+    this.state = { name: '', colorSelect:'' };
   }
 
   render() {
     return (
     // Setting the background image to cover the whole screen 
+    // User can choose a background color for the chat screen by touching a TouchableOpacity
       <ImageBackground source={image} style={styles.backgroundImage}>
        <Text style={styles.title}>Chat App!
        </Text>
@@ -26,25 +27,25 @@ export default class Start extends React.Component {
           </Text>
           <View style={styles.colorSelection}>
             {/* users can choose a background color for chatting page */}
-            <View 
-              onPress={() => this.setState({color: '#090C08'})} 
-              style={[styles.colorButton, styles.color1]}></View>
-            <View 
-              onPress={() => this.setState({color: '#474056'})} 
-              style={[styles.colorButton, styles.color2]}></View>
-            <View 
-              onPress={() => this.setState({color: '#8A95A5'})} 
-              style={[styles.colorButton, styles.color3]}></View>
-            <View 
-              onPress={() => this.setState({color: '#B9C6AE'})} 
-              style={[styles.colorButton, styles.color4]}></View>
+            <TouchableOpacity
+              onPress={() => this.setState({colorSelect: '#090C08'})} 
+              style={[styles.colorButton, styles.color1]}></TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.setState({colorSelect: '#474056'})} 
+              style={[styles.colorButton, styles.color2]}></TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.setState({colorSelect: '#8A95A5'})} 
+              style={[styles.colorButton, styles.color3]}></TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.setState({colorSelect: '#B9C6AE'})} 
+              style={[styles.colorButton, styles.color4]}></TouchableOpacity>
           </View>
           <View style={styles.startChattingButton}>     
             {/* <Button style={styles.buttonText} */}
           <Button 
-           style={styles.buttonText}
-            onPress={() => this.props.navigation.navigate('Chat', { name: this.state.name, color: this.state.color})}
+           style={styles.button}
            title="Start Chatting"
+          onPress={() => this.props.navigation.navigate('Chat', { name: this.state.name, colorSelect: this.state.colorSelect})}
           />
           {/* display user's name in the navigation bar at the top of the chat screen */}
           </View>  
@@ -91,7 +92,6 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     opacity: 50,
     borderWidth: 1,
-
     marginBottom: 20
   },
   colorSelection: {
@@ -133,10 +133,12 @@ const styles = StyleSheet.create({
     height: 50,
     marginBottom: 20
   },
-  buttonText: {
+  button: {
     fontSize: 16,
     fontWeight: '600',
     alignSelf: 'center',
+    color:'#FFFFFF',
+    backgroundColor:'#757083',
     margin: 5,
   }
 });
