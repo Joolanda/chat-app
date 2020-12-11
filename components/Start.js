@@ -48,6 +48,7 @@ export default class Start extends React.Component {
           onPress={() => this.props.navigation.navigate('Chat', { name: this.state.name, colorSelect: this.state.colorSelect})}
           />
           {/* display user's name in the navigation bar at the top of the chat screen */}
+          
           </View>  
         </View>
      </ImageBackground>  
