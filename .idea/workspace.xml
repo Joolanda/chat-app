@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2485d45d-8052-4e93-983e-3e57da16464c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Chat.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +48,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="1873" y="578" key="FileChooserDialogImpl/-1920.197.1920.1055/0.25.2560.1415@0.25.2560.1415" timestamp="1607642401776" />
+    <state x="1456" y="567" key="IDE.errors.dialog" timestamp="1607724885184">
+      <screen x="0" y="25" width="2560" height="1415" />
+    </state>
+    <state x="1456" y="567" key="IDE.errors.dialog/-1920.197.1920.1055/0.25.2560.1415@0.25.2560.1415" timestamp="1607724885184" />
     <state x="1476" y="159" key="SettingsEditor" timestamp="1607642715130">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>

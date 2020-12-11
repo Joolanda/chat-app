@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
 // Bubble is a third party tool to customize styling of the gifted chat bubble 
 import { Bubble, GiftedChat } from 'react-native-gifted-chat';
 // By importing keyboardAvoidingView you can solve the issue with keyboard position on Android devices
-import { Platform, KeyboardAvoidingView } from 'react-native';
+import { View, Platform, KeyboardAvoidingView } from 'react-native';
 
 // The application’s main Chat component that renders the chat UI export default class Chat extends Component
 export default class Chat extends React.Component {
