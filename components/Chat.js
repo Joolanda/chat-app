@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TextInput, Button} from 'react-native';
-import { GiftedChat } from 'react-native-gifted-chat';
+import { Bubble, GiftedChat } from 'react-native-gifted-chat';
 
 // The application’s main Chat component that renders the chat UI export default class Chat extends Component {...
 export default class Chat extends React.Component {
@@ -27,11 +27,25 @@ export default class Chat extends React.Component {
       ],
     })
   }
+  // Gifted Chat functions
   // this function below will be called when a user sends a message
   onSend(messages = []) {
     this.setState(previousState => ({
-      messages: GiftedChad.append(previousState.messages, messages),
+      messages: GiftedChat.append(previousState.messages, messages),
     }))
+  }
+  // customize styling of the chat bubble like background color
+  renderBubble(props) {
+    return (
+      <Bubble
+        {...props}
+        wrapperStyle={{
+          right: {
+            backgroundColor: '#000'
+          }
+        }}
+      />
+    )
   }
  
   // Initializing state user
@@ -45,12 +59,11 @@ export default class Chat extends React.Component {
       <View 
         style={{
           flex:1, 
-          justifyContent: 'center', 
-          alignItems: 'center', 
           backgroundColor: colorSelect
         }}>
          {/* rendering chat interface with gifted Chat component, a third party tool */}
          <GiftedChat
+          renderBubble={this.renderBubble.bind(this)}
           messages={this.state.messages}
           onSend={messages => this.onSend(messages)}
           user={{
