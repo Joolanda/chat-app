@@ -1,8 +1,11 @@
 import React from 'react';
-import { View, Text, TextInput, Button} from 'react-native';
+import { View, Text, TextInput, Button } from 'react-native';
+// Bubble is a third party tool to customize styling of the gifted chat bubble 
 import { Bubble, GiftedChat } from 'react-native-gifted-chat';
+// By importing keyboardAvoidingView you can solve the issue with keyboard position on Android devices
+import { Platform, KeyboardAvoidingView } from 'react-native';
 
-// The application’s main Chat component that renders the chat UI export default class Chat extends Component {...
+// The application’s main Chat component that renders the chat UI export default class Chat extends Component
 export default class Chat extends React.Component {
   //initializing the state in order to send, receive and display messages
   constructor() {
@@ -47,7 +50,7 @@ export default class Chat extends React.Component {
       />
     )
   }
- 
+ //wrap entire GiftedChat component into a view and add condition for KeyboardAvoidingView
   // Initializing state user
   render() {
     //Defining variables from Start screen
@@ -70,6 +73,7 @@ export default class Chat extends React.Component {
             _id: 1,
           }}
          />
+         { Platform.OS === 'android' ? <KeyboardAvoidingView behavior="height" /> : null}
       </View>
     )
   }
