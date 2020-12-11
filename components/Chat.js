@@ -51,13 +51,12 @@ export default class Chat extends React.Component {
         }}>
          {/* rendering chat interface with gifted Chat component, a third party tool */}
          <GiftedChat
-         messages={this.state.messages}
-         onSend={messages => this.onSend(messages)}
-         user={{
-           _id: 1,
-         }}
+          messages={this.state.messages}
+          onSend={messages => this.onSend(messages)}
+          user={{
+            _id: 1,
+          }}
          />
-
       </View>
     )
   }
