@@ -18,6 +18,7 @@ export default class Chat extends React.Component {
         loggedInText: '',
       };
   }
+
   componentDidMount() {
     this.setState({
       messages: [
@@ -34,7 +35,7 @@ export default class Chat extends React.Component {
         {
           _id: 2,
           // Here you can display your apps system messages (f.e. last time a user was active or if someone new joins the chat)
-          text: 'This is a system message',
+          text: {name},
           createdAt: new Date(),
           system: true,
           
@@ -77,7 +78,7 @@ export default class Chat extends React.Component {
           color: '#fff',
           backgroundColor: colorSelect,
         }}>
-          <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > Hey { name}, you've entered the chat!</Text>
+          <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > Hey { name}, nice background!</Text>
          {/* rendering chat interface with gifted Chat component, a third party tool */}
          <GiftedChat
           renderBubble={this.renderBubble.bind(this)}

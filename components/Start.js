@@ -17,11 +17,12 @@ export default class Start extends React.Component {
        <Text style={styles.title}>Chat App!
        </Text>
         <View style={styles.container}>
-          <TextInput 
-          style={styles.nameBox}
-          onChangeText={(name) => this.setState({name})}
-          value={this.state.name}
-          placeholder='Your Name'
+          <TextInput style={styles.nameBox}
+            accessible={true}
+            accessibilityLabel='Input name'
+            onChangeText={(name) => this.setState({name})}
+            value={this.state.name}
+            placeholder='Your Name'
           /> 
           <Text style={{ alignSelf: 'center', width: '88%', marginBottom: 10, fontSize:16, fontWeight: '300', color: '#757083', opacity: 100 }}>Choose Background Color:
           </Text>
@@ -43,9 +44,11 @@ export default class Start extends React.Component {
           <View style={styles.startChattingButton}>     
             {/* <Button style={styles.buttonText} */}
           <Button 
-           style={styles.button}
-           title="Start Chatting"
-          onPress={() => this.props.navigation.navigate('Chat', { name: this.state.name, colorSelect: this.state.colorSelect})}
+            accessible={true}
+            accessibilityLabel="start chatting"
+            style={styles.button}
+            title="Start Chatting"
+            onPress={() => this.props.navigation.navigate('Chat', { name: this.state.name, colorSelect: this.state.colorSelect})}
           />
           {/* display user's name in the navigation bar at the top of the chat screen */}
           
