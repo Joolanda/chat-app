@@ -18,7 +18,6 @@ export default class Chat extends React.Component {
         loggedInText: '',
       };
   }
-
   componentDidMount() {
     this.setState({
       messages: [

@@ -19,7 +19,7 @@ export default class Start extends React.Component {
         <View style={styles.container}>
           <TextInput style={styles.nameBox}
             accessible={true}
-            accessibilityLabel='Input name'
+            accessibilityLabel='Input'
             onChangeText={(name) => this.setState({name})}
             value={this.state.name}
             placeholder='Your Name'
