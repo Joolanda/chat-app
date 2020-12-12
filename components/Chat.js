@@ -2,16 +2,21 @@ import React from 'react';
 // Bubble is a third party tool to customize styling of the gifted chat bubble 
 import { Bubble, GiftedChat } from 'react-native-gifted-chat';
 // By importing keyboardAvoidingView you can solve the issue with keyboard position on Android devices
-import { View, Platform, KeyboardAvoidingView } from 'react-native';
+import { View, Text, Platform, KeyboardAvoidingView } from 'react-native';
 
 // The application’s main Chat component that renders the chat UI export default class Chat extends Component
 export default class Chat extends React.Component {
-  //initializing the state in order to send, receive and display messages
+  // Initializing the state in order to send, receive and display messages
   constructor() {
     super();
       this.state = {
         messages: [],
-      }
+        user: {
+          _id:'',
+          avatar: '',
+        },
+        loggedInText: '',
+      };
   }
   componentDidMount() {
     this.setState({
@@ -26,6 +31,14 @@ export default class Chat extends React.Component {
             avatar: 'https://placeimg.com/140/140/any',
           },
         },
+        {
+          _id: 2,
+          // Here you can display your apps system messages (f.e. last time a user was active or if someone new joins the chat)
+          text: 'This is a system message',
+          createdAt: new Date(),
+          system: true,
+          
+        },
       ],
     })
   }
@@ -36,7 +49,7 @@ export default class Chat extends React.Component {
       messages: GiftedChat.append(previousState.messages, messages),
     }))
   }
-  // customize styling of the chat bubble like background color
+  // Customize styling of the chat bubble like background color
   renderBubble(props) {
     return (
       <Bubble
@@ -49,10 +62,10 @@ export default class Chat extends React.Component {
       />
     )
   }
- //wrap entire GiftedChat component into a view and add condition for KeyboardAvoidingView
+ // Wrap entire GiftedChat component into a view and add condition for KeyboardAvoidingView
   // Initializing state user
   render() {
-    //Defining variables from Start screen
+    // Defining variables from Start screen
     let { name, colorSelect }= this.props.route.params;
     // Display user's name in the navbar at the top of the chat screen
     this.props.navigation.setOptions({ title: name });
@@ -61,15 +74,17 @@ export default class Chat extends React.Component {
       <View 
         style={{
           flex:1, 
-          backgroundColor: colorSelect
+          color: '#fff',
+          backgroundColor: colorSelect,
         }}>
+          <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > Hey { name}, you've entered the chat!</Text>
          {/* rendering chat interface with gifted Chat component, a third party tool */}
          <GiftedChat
           renderBubble={this.renderBubble.bind(this)}
           messages={this.state.messages}
           onSend={messages => this.onSend(messages)}
           user={{
-            _id: 1,
+            _id: 1, _id:3
           }}
          />
          { Platform.OS === 'android' ? <KeyboardAvoidingView behavior="height" /> : null}
