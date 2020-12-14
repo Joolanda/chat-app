@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, View, Text, Button, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { ImageBackground, View, Text, Button, TextInput, StyleSheet, TouchableOpacity, Platform, KeyboardAvoidingView } from 'react-native';
 // The application’s Start component that renders the openings-screen UI export default class Start extends Component {...
 const image = require('../assets/background-image.png');
 const icon = require('../assets/icon.svg');
@@ -42,15 +42,17 @@ export default class Start extends React.Component {
               style={[styles.colorButton, styles.color4]}></TouchableOpacity>
           </View>
           <View style={styles.startChattingButton}>     
-          <Button 
+          <TouchableOpacity
             accessible={true}
             accessibilityLabel="start chatting"
-            style={styles.button}
+            style={{color:'#FFFFFF'}}
             title="Start Chatting"
-            // color='#FFFFFF'
             color='#757083'
             onPress={() => this.props.navigation.navigate('Chat', { name: this.state.name, colorSelect: this.state.colorSelect})}
-          />
+          >
+            <Text style={{color:'#FFFFFF', fontSize: 16, fontWeight: '600', alignSelf: 'center',}} >start chatting</Text>
+          </TouchableOpacity>
+
           {/* display user's name in the navigation bar at the top of the chat screen
           and let user choose a background color for the chat page*/}   
           </View>  
@@ -137,12 +139,14 @@ const styles = StyleSheet.create({
     backgroundColor:'#757083',
     width:'88%',
     height: 50,
-    marginBottom: 20
+    marginBottom: 20,
+    padding: 10
   },
-  button: {
+/*   button: {
     fontSize: 16,
     fontWeight: '600',
     alignSelf: 'center',
+    color:'#FFFFFF',
     backgroundColor:'#757083',
-  }
+  } */
 });
