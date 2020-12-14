@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2485d45d-8052-4e93-983e-3e57da16464c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Chat.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Chat.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Start.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Start.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +46,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1476" y="998" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1607861895716">
+      <screen x="0" y="25" width="2560" height="1415" />
+    </state>
+    <state x="1476" y="998" key="#com.intellij.fileTypes.FileTypeChooser/-1920.197.1920.1055/0.25.2560.1415@0.25.2560.1415" timestamp="1607861895716" />
     <state x="1620" y="393" width="765" height="855" key="AVDManager" timestamp="1607809649902">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>

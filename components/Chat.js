@@ -1,23 +1,26 @@
 import React from 'react';
 // Bubble is a third party tool to customize styling of the gifted chat bubble 
-import { Bubble, GiftedChat } from 'react-native-gifted-chat';
+import { Bubble, GiftedChat, SystemMessage } from 'react-native-gifted-chat';
 // By importing keyboardAvoidingView you can solve the issue with keyboard position on Android devices
 import { View, Text, Platform, KeyboardAvoidingView } from 'react-native';
 
 // The application’s main Chat component that renders the chat UI export default class Chat extends Component
 export default class Chat extends React.Component {
   // Initializing the state in order to send, receive and display messages
+  
   constructor() {
     super();
       this.state = {
         messages: [],
         user: {
           _id:'',
+          name: '',
           avatar: '',
         },
         loggedInText: '',
       };
   }
+
   componentDidMount() {
     this.setState({
       messages: [
@@ -34,7 +37,7 @@ export default class Chat extends React.Component {
         {
           _id: 2,
           // Here you can display your apps system messages (f.e. last time a user was active or if someone new joins the chat)
-          text: {name},
+          text: 'Hi "User X", you have entered the chat!',
           createdAt: new Date(),
           system: true,
           
@@ -62,6 +65,20 @@ export default class Chat extends React.Component {
       />
     )
   }
+/* renderSystemMessage(props) {
+    return (
+      <SystemMessage
+      {...props}
+      containerStyle={{ backgroundColor: 'pink' }}
+      wrapperStyle={{ borderWidth: 10, borderColor: 'white' }}
+      textStyle={{ color: 'crimson', fontWeight: '900' }}
+
+      > 
+      <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > Hey { name}, nice background!</Text></SystemMessage> 
+    )
+   } */
+
+
  // Wrap entire GiftedChat component into a view and add condition for KeyboardAvoidingView
   // Initializing state user
   render() {
@@ -84,7 +101,7 @@ export default class Chat extends React.Component {
           messages={this.state.messages}
           onSend={messages => this.onSend(messages)}
           user={{
-            _id: 1, _id:3
+            _id: 1, 
           }}
          />
          { Platform.OS === 'android' ? <KeyboardAvoidingView behavior="height" /> : null}

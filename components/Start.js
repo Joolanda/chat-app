@@ -42,20 +42,21 @@ export default class Start extends React.Component {
               style={[styles.colorButton, styles.color4]}></TouchableOpacity>
           </View>
           <View style={styles.startChattingButton}>     
-            {/* <Button style={styles.buttonText} */}
           <Button 
             accessible={true}
             accessibilityLabel="start chatting"
             style={styles.button}
             title="Start Chatting"
+            // color='#FFFFFF'
+            color='#757083'
             onPress={() => this.props.navigation.navigate('Chat', { name: this.state.name, colorSelect: this.state.colorSelect})}
           />
-          {/* display user's name in the navigation bar at the top of the chat screen */}
-          
+          {/* display user's name in the navigation bar at the top of the chat screen
+          and let user choose a background color for the chat page*/}   
           </View>  
         </View>
      </ImageBackground>  
-    )
+    );
   }
 }
 // Creating Styling with Stylesheet component of react native and using the Design Specifications. With flexbox.
@@ -132,6 +133,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   startChattingButton: {
+    color:'#FFFFFF',
     backgroundColor:'#757083',
     width:'88%',
     height: 50,
@@ -141,8 +143,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
     alignSelf: 'center',
-    color:'#FFFFFF',
     backgroundColor:'#757083',
-    margin: 5,
   }
 });
