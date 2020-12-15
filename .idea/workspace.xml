@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2485d45d-8052-4e93-983e-3e57da16464c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Start.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Start.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +22,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunAnythingContextRecentDirectoryCache">
     <option name="paths">
@@ -60,13 +61,13 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="1456" y="567" key="IDE.errors.dialog/-1920.197.1920.1055/0.25.2560.1415@0.25.2560.1415" timestamp="1607934990588" />
-    <state x="1476" y="159" key="SettingsEditor" timestamp="1607642715130">
+    <state x="298" y="43" key="SettingsEditor" timestamp="1607961961899">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="1476" y="159" key="SettingsEditor/-1920.197.1920.1055/0.25.2560.1415@0.25.2560.1415" timestamp="1607642715130" />
-    <state x="1750" y="388" key="run.anything.popup" timestamp="1607642375947">
+    <state x="298" y="43" key="SettingsEditor/-1920.197.1920.1055/0.25.2560.1415@0.25.2560.1415" timestamp="1607961961899" />
+    <state x="1750" y="388" key="run.anything.popup" timestamp="1607942472393">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="1750" y="388" key="run.anything.popup/-1920.197.1920.1055/0.25.2560.1415@0.25.2560.1415" timestamp="1607642375947" />
+    <state x="1750" y="388" key="run.anything.popup/-1920.197.1920.1055/0.25.2560.1415@0.25.2560.1415" timestamp="1607942472393" />
   </component>
 </project>

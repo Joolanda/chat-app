@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, View, Text, Button, TextInput, StyleSheet, TouchableOpacity, Platform, KeyboardAvoidingView } from 'react-native';
+import { ImageBackground, View, Text, Button, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 // The application’s Start component that renders the openings-screen UI export default class Start extends Component {...
 const image = require('../assets/background-image.png');
 const icon = require('../assets/icon.svg');
@@ -142,11 +142,11 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     padding: 10
   },
-/*   button: {
+  button: {
     fontSize: 16,
     fontWeight: '600',
     alignSelf: 'center',
     color:'#FFFFFF',
     backgroundColor:'#757083',
-  } */
+  }
 });
