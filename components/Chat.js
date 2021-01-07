@@ -21,7 +21,7 @@ export default class Chat extends React.Component {
           avatar: "",
         },
         loggedInText: "",
-        //isConnected: false,
+        isConnected: false,
       };
   
   // Referencing to the Firestore database. 
@@ -47,14 +47,19 @@ export default class Chat extends React.Component {
 
   componentDidMount() {
   //listen to authentication events
-  //if(state.isConnected){this.authUnsubscribe...}
-  this.authUnsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
+  // use if statement to make sure that references aren't iunidefined or null. (Always check this).
+  if(state.isConnected){
+    this.authUnsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
     if(!user) {
+      try {
       await firebase.auth().signInAnonymously();
+      } catch (error){
+      console.log(`Unable to sign in: ${error.message}`);
+      }
     }
     // update user state with currently active user data
     this.setState({
-      //isConnected:true,
+      isConnected:true,
       user: {
         _id: user.uid,
         name: this.props.route.params.name,
@@ -65,15 +70,22 @@ export default class Chat extends React.Component {
     }); 
     // delete original listener as you no longer need it
     this.unsubscribe = this.referenceMessages.onSnapshot(this.onCollectionUpdate);
-  });
+    });
+    } else {
+    this.setState({
+      isConnected: false,
+      });
+    }
   }
+
   componentWillUnmount() {
-  // if(this.state.isConnected){}
+    if(this.state.isConnected){
   // stop listening to authentication
     this.authUnsubscribe();
   //stop listening for collectionchanges
     this.unsubscribe();
   }
+}
 // function onSend is called upon sending a message.
 // "previousState" references the component's state at the time the change is applied.
   onSend(messages = []) {
