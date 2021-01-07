@@ -1,6 +1,6 @@
 import React from 'react';
 // Bubble is a third party tool to customize styling of the gifted chat bubble 
-import { Bubble, GiftedChat } from 'react-native-gifted-chat';
+import { Bubble, GiftedChat, StyleSheet } from 'react-native-gifted-chat';
 // By importing keyboardAvoidingView you can solve the issue with keyboard position on Android devices
 import { View, Text, Platform, KeyboardAvoidingView } from 'react-native';
 // establish connection to Firestore 
@@ -16,12 +16,11 @@ export default class Chat extends React.Component {
       this.state = {
         messages: [],
         user: {
-          _id:'',
-          name: '',
-          avatar: '',
+          _id:"",
+          name: "",
+          avatar: "",
         },
-        uid: 0,
-        loggedInText: '',
+        loggedInText: "",
         //isConnected: false,
       };
   
@@ -42,12 +41,11 @@ export default class Chat extends React.Component {
 
         });
       }
+      // create a reference to my messages collection of the database
+      this.referenceMessages = firebase.firestore().collection('messages');
     }
 
   componentDidMount() {
-    // create a reference to my messages collection of the database
-  this.referenceMessages = firebase.firestore().collection('messages');
-
   //listen to authentication events
   //if(state.isConnected){this.authUnsubscribe...}
   this.authUnsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
@@ -65,14 +63,64 @@ export default class Chat extends React.Component {
       loggedInText: `${this.props.route.params.name} has entered the chat`,
       messages:[],
     }); 
-  },
-}
-
-  onSend(messages = []) {
-    this.setState(previousState => ({
-      messages: GiftedChat.append(previousState.messages, messages),
-    }))
+    // delete original listener as you no longer need it
+    this.unsubscribe = this.referenceMessages.onSnapshot(this.onCollectionUpdate);
+  });
   }
+  componentWillUnmount() {
+  // if(this.state.isConnected){}
+  // stop listening to authentication
+    this.authUnsubscribe();
+  //stop listening for collectionchanges
+    this.unsubscribe();
+  }
+// function onSend is called upon sending a message.
+// "previousState" references the component's state at the time the change is applied.
+  onSend(messages = []) {
+      this.setState((previousState) => ({
+      messages: GiftedChat.append(previousState.messages, messages),
+    }),
+    () => {
+      this.addMessages();
+      this.saveMessages();
+    }
+    
+    );
+  }
+  onCollectionUpdate = (querySnapshot) => {
+    const messages = [];
+    // go through each document
+    querySnapshot.forEach((doc) => {
+      // get the QueryDocumentSnapshot's data
+      var data = doc.data();
+      messages.push({
+        _id: data._id,
+        text: data.text.toString(),
+        createdAt: data.createdAt.toDate(),
+        user: {
+          _id: data.user._id,
+          name: data.user.name,
+          avatar: data.user.avatar,
+        },
+      });
+    });
+    this.setState({
+      messages,
+    });
+  };
+    
+  addMessages = () => {
+    // add new messages to the chat history. Push messages to firestore database
+    const message = this.state.messages[0];
+    this.referenceMessages.add({
+      _id: message.uid,
+      text: message.text || '',
+      createdAt: message.createdAt,
+      user: message.user,
+      uid: this.state.uid,
+    });
+  }
+
   // Customize styling of the chat bubble like background color
   renderBubble(props) {
     return (
@@ -102,7 +150,9 @@ export default class Chat extends React.Component {
           color: '#fff',
           backgroundColor: colorSelect,
         }}>
-          <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > Hey { name}, nice background!</Text>
+          {/* <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > Hey { name}, nice background!</Text> */}
+          <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > {this.state.loggedInText}, just testing babe</Text>
+
          {/* rendering chat interface with gifted Chat component, a third party tool */}
          <GiftedChat
           renderBubble={this.renderBubble.bind(this)}

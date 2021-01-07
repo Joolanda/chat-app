@@ -3,10 +3,11 @@ import { ImageBackground, View, Text, Button, TextInput, StyleSheet, TouchableOp
 // The application’s Start component that renders the openings-screen UI export default class Start extends Component {...
 const image = require('../assets/background-image.png');
 const icon = require('../assets/icon.svg');
+
 export default class Start extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { name: '', colorSelect:'' };
+  constructor() {
+    super()
+    this.state = { text: '', colorSelect:'' };
   }
 
   render() {
@@ -48,7 +49,7 @@ export default class Start extends React.Component {
             style={{color:'#FFFFFF'}}
             title="Start Chatting"
             color='#757083'
-            onPress={() => this.props.navigation.navigate('Chat', { name: this.state.name, colorSelect: this.state.colorSelect})}
+            onPress={() => this.props.navigation.navigate('Chat', { name: this.state.text, colorSelect: this.state.colorSelect})}
           >
             <Text style={{color:'#FFFFFF', fontSize: 16, fontWeight: '600', alignSelf: 'center',}} >start chatting</Text>
           </TouchableOpacity>
