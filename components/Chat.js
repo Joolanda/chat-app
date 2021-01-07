@@ -1,8 +1,8 @@
 import React from 'react';
 // Bubble is a third party tool to customize styling of the gifted chat bubble 
-import { Bubble, GiftedChat, StyleSheet } from 'react-native-gifted-chat';
+import { Bubble, GiftedChat } from 'react-native-gifted-chat';
 // By importing keyboardAvoidingView you can solve the issue with keyboard position on Android devices
-import { View, Text, Platform, KeyboardAvoidingView } from 'react-native';
+import { View, Text, Platform, KeyboardAvoidingView, StyleSheet } from 'react-native';
 // establish connection to Firestore 
 const firebase = require('firebase');
 require('firebase/firestore');
@@ -20,6 +20,7 @@ export default class Chat extends React.Component {
           avatar: "",
           name: "",
         },
+        // uid: 0,
         loggedInText: "",
         isConnected: false,
       };
@@ -42,7 +43,7 @@ export default class Chat extends React.Component {
         });
       }
       // create a reference to my messages collection of the database
-      this.referenceMessages = firebase.firestore().collection('messages');
+      this.referenceMessages = firebase.firestore().collection("messages");
     }
 
   componentDidMount() {
@@ -59,7 +60,7 @@ export default class Chat extends React.Component {
     }
     // update user state with currently active user data
     this.setState({
-      isConnected:true,
+      isConnected: true,
       user: {
         _id: user.uid,
         name: this.props.route.params.name,
@@ -75,6 +76,7 @@ export default class Chat extends React.Component {
     this.setState({
       isConnected: false,
       });
+      // this.getMessages();
     }
   }
 
@@ -94,7 +96,6 @@ export default class Chat extends React.Component {
     }),
     () => {
       this.addMessages();
-      this.saveMessages();
     }
     
     );
@@ -129,7 +130,7 @@ export default class Chat extends React.Component {
       text: message.text || '',
       createdAt: message.createdAt,
       user: message.user,
-      uid: this.state.uid,
+      // uid: this.state.uid,
     });
   }
 
@@ -163,7 +164,7 @@ export default class Chat extends React.Component {
           backgroundColor: colorSelect,
         }}>
           {/* <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > Hey { name}, nice background!</Text> */}
-          <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > {this.state.loggedInText}, just testing babe</Text>
+          <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > {this.state.loggedInText}, Let's chat physical!</Text>
 
          {/* rendering chat interface with gifted Chat component, a third party tool */}
          <GiftedChat
