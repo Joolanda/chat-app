@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2485d45d-8052-4e93-983e-3e57da16464c" name="Default Changelist" comment="" />
+    <list default="true" id="2485d45d-8052-4e93-983e-3e57da16464c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,10 +48,10 @@
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
     <state x="1476" y="998" key="#com.intellij.fileTypes.FileTypeChooser/-1920.197.1920.1055/0.25.2560.1415@0.25.2560.1415" timestamp="1607861895716" />
-    <state x="1551" y="701" width="574" height="638" key="AVDManager" timestamp="1610039569580">
+    <state x="1551" y="701" width="574" height="638" key="AVDManager" timestamp="1610052114861">
       <screen x="0" y="25" width="2560" height="1415" />
     </state>
-    <state x="1551" y="701" width="574" height="638" key="AVDManager/-1920.197.1920.1055/0.25.2560.1415@-1920.197.1920.1055" timestamp="1610039569580" />
+    <state x="1551" y="701" width="574" height="638" key="AVDManager/-1920.197.1920.1055/0.25.2560.1415@-1920.197.1920.1055" timestamp="1610052114861" />
     <state x="552" y="267" width="765" height="855" key="AVDManager/-1920.197.1920.1055/0.25.2560.1415@0.25.2560.1415" timestamp="1609952609609" />
     <state x="1873" y="578" key="FileChooserDialogImpl" timestamp="1607642401776">
       <screen x="0" y="25" width="2560" height="1415" />
