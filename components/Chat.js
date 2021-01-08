@@ -20,7 +20,7 @@ export default class Chat extends React.Component {
           avatar: "",
           name: "",
         },
-        uid: 0,
+        // uid: 0,
         loggedInText: "",
         isConnected: false,
       };
@@ -63,7 +63,7 @@ export default class Chat extends React.Component {
       isConnected: true,
       user: {
         _id: user.uid, 
-        name: this.props.route.params.user,
+        name: this.props.route.params.name,
         avatar: 'https://placeimg.com/140/140/any',
       },
       loggedInText: `${this.props.route.params.name} has entered the chat`,
@@ -153,11 +153,11 @@ export default class Chat extends React.Component {
   // Initializing state user
   render() {
     // Defining variables from Start screen
-    let { user, colorSelect }= this.props.route.params;
+    let { name, colorSelect }= this.props.route.params;
     // Set a default username in case the user didn't enter one
-    if (!user || user === '') user = 'User';
+    // if (!user || user === '') user = 'User';
     // Display user's name in the navbar at the top of the chat screen
-    this.props.navigation.setOptions({ title: user });
+    this.props.navigation.setOptions({ title: name });
 
     return (
       <View 
