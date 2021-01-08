@@ -20,7 +20,7 @@ export default class Chat extends React.Component {
           avatar: "",
           name: "",
         },
-        // uid: 0,
+        uid: 0,
         loggedInText: "",
         isConnected: false,
       };
@@ -49,20 +49,20 @@ export default class Chat extends React.Component {
   componentDidMount() {
   //listen to authentication events
   // use if statement to make sure that references aren't iunidefined or null. (Always check this).
-  if(state.isConnected){
+  if (state.isConnected) {
     this.authUnsubscribe = firebase.auth().onAuthStateChanged(async (user) => {
-    if(!user) {
+    if (!user) {
       try {
       await firebase.auth().signInAnonymously();
-      } catch (error){
-      console.log(`Unable to sign in: ${error.message}`);
+      } catch (error) {
+      console.log(error.message);
       }
     }
     // update user state with currently active user data
     this.setState({
       isConnected: true,
       user: {
-        _id: user.uid,
+        _id: user.uid, 
         name: this.props.route.params.name,
         avatar: 'https://placeimg.com/140/140/any',
       },
@@ -100,6 +100,7 @@ export default class Chat extends React.Component {
     
     );
   }
+  
   onCollectionUpdate = (querySnapshot) => {
     const messages = [];
     // go through each document
@@ -130,7 +131,7 @@ export default class Chat extends React.Component {
       text: message.text || '',
       createdAt: message.createdAt,
       user: message.user,
-      // uid: this.state.uid,
+      uid: this.state.uid,
     });
   }
 
@@ -152,9 +153,11 @@ export default class Chat extends React.Component {
   // Initializing state user
   render() {
     // Defining variables from Start screen
-    let { name, colorSelect }= this.props.route.params;
+    let { user, colorSelect }= this.props.route.params;
+    // Set a default username in case the user didn't enter one
+    if (!user || user === '') user = 'User';
     // Display user's name in the navbar at the top of the chat screen
-    this.props.navigation.setOptions({ title: name });
+    this.props.navigation.setOptions({ title: user });
 
     return (
       <View 
@@ -164,7 +167,7 @@ export default class Chat extends React.Component {
           backgroundColor: colorSelect,
         }}>
           {/* <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > Hey { name}, nice background!</Text> */}
-          <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > {this.state.loggedInText}, Let's chat physical!</Text>
+          <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > {this.state.loggedInText}</Text>
 
          {/* rendering chat interface with gifted Chat component, a third party tool */}
          <GiftedChat
