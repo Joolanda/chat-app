@@ -167,7 +167,7 @@ export default class Chat extends React.Component {
           backgroundColor: colorSelect,
         }}>
           {/* <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > Hey { name}, nice background!</Text> */}
-          <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > {this.state.loggedInText}</Text>
+          {/* <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > {this.state.loggedInText}</Text> */}
 
          {/* rendering chat interface with gifted Chat component, a third party tool */}
          <GiftedChat

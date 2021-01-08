@@ -50,7 +50,7 @@ export default class Start extends React.Component {
             style={{color:'#FFFFFF'}}
             title="Start Chatting"
             color='#757083'
-            onPress={() => this.props.navigation.navigate('Chat', { user: this.state.name, colorSelect: this.state.colorSelect})}
+            onPress={() => this.props.navigation.navigate('Chat', { name: this.state.name, colorSelect: this.state.colorSelect})}
           >
             <Text style={{color:'#FFFFFF', fontSize: 16, fontWeight: '600', alignSelf: 'center',}} >start chatting</Text>
           </TouchableOpacity>
