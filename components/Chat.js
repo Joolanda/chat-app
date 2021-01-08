@@ -63,7 +63,7 @@ export default class Chat extends React.Component {
       isConnected: true,
       user: {
         _id: user.uid, 
-        name: this.props.route.params.name,
+        name: this.props.route.params.user,
         avatar: 'https://placeimg.com/140/140/any',
       },
       loggedInText: `${this.props.route.params.name} has entered the chat`,
@@ -100,7 +100,7 @@ export default class Chat extends React.Component {
     
     );
   }
-  
+
   onCollectionUpdate = (querySnapshot) => {
     const messages = [];
     // go through each document
@@ -127,7 +127,7 @@ export default class Chat extends React.Component {
     // add new messages to the chat history. Push messages to firestore database
     const message = this.state.messages[0];
     this.referenceMessages.add({
-      _id: message.uid,
+      _id: message._id,
       text: message.text || '',
       createdAt: message.createdAt,
       user: message.user,
