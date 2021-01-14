@@ -65,11 +65,12 @@ export default class Chat extends React.Component {
       isConnected: true,
       user: {
         _id: user.uid, 
-        name: this.props.navigation.state.params.name,
+        name: this.props.route.params.name,
         avatar: 'https://placeimg.com/140/140/any',
       },
-      loggedInText: `${this.props.navigation.state.params.name} has entered the chat`,
-      messages:[],
+      // loggedInText: `${this.props.route.params.name} has entered the chat`,
+      loggedInText: 'Hello',
+      // messages:[],
     }); 
     // delete original listener as you no longer need it
     this.unsubscribe = this.referenceMessages.onSnapshot(this.onCollectionUpdate);
