@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+// import { StyleSheet, Text, View } from 'react-native';
 // import the screens we want to navigate
 import Start from './components/Start';
 import Chat from './components/Chat';
@@ -14,7 +14,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
 
-export default class App extends React.Component {
+export default class App extends Component {
 
   render() {
     return (
