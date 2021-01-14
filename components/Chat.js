@@ -1,20 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 // Bubble is a third party tool to customize styling of the gifted chat bubble 
 import { Bubble, GiftedChat } from 'react-native-gifted-chat';
 // By importing keyboardAvoidingView you can solve the issue with keyboard position on Android devices
 import { View, Text, Platform, KeyboardAvoidingView, StyleSheet } from 'react-native';
+
 // establish connection to Firestore 
 const firebase = require('firebase');
 require('firebase/firestore');
 // The application’s main Chat component that renders the chat UI export default class Chat extends Component
 
-export default class Chat extends React.Component {
+export default class Chat extends Component {
   // Initializing the state in order to send, receive and display messages
   
   constructor() {
     super();
       this.state = {
         messages: [],
+        uid: 0,
         user: {
           _id: "",
           avatar: "",
