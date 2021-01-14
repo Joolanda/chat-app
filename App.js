@@ -27,6 +27,7 @@ export default class App extends Component {
             // Name doesn't have to match the component's name
             name="Home"
             component={Start}
+            options={{ headerShown: false }}
           />
           <Stack.Screen
               name="Chat"
