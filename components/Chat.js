@@ -16,7 +16,7 @@ export default class Chat extends React.Component {
       this.state = {
         messages: [],
         user: {
-          _id:"",
+          _id: "",
           avatar: "",
           name: "",
         },
@@ -63,10 +63,10 @@ export default class Chat extends React.Component {
       isConnected: true,
       user: {
         _id: user.uid, 
-        name: this.props.route.params.name,
+        name: this.props.navigation.state.params.name,
         avatar: 'https://placeimg.com/140/140/any',
       },
-      loggedInText: `${this.props.route.params.name} has entered the chat`,
+      loggedInText: `${this.props.navigation.state.params.name} has entered the chat`,
       messages:[],
     }); 
     // delete original listener as you no longer need it
@@ -106,7 +106,7 @@ export default class Chat extends React.Component {
     // go through each document
     querySnapshot.forEach((doc) => {
       // get the QueryDocumentSnapshot's data
-      var data = doc.data();
+      let data = doc.data();
       messages.push({
         _id: data._id,
         text: data.text.toString(),
@@ -167,7 +167,7 @@ export default class Chat extends React.Component {
           backgroundColor: colorSelect,
         }}>
           {/* <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > Hey { name}, nice background!</Text> */}
-          {/* <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > {this.state.loggedInText}</Text> */}
+          <Text style={{ color:'#fff', marginTop: 50,  alignSelf: 'center',}} > {this.state.loggedInText}</Text>
 
          {/* rendering chat interface with gifted Chat component, a third party tool */}
          <GiftedChat
