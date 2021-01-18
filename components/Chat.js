@@ -156,7 +156,8 @@ export default class Chat extends React.Component {
   // Initializing state user
   render() {
     // Defining variables from Start screen
-    let { name, colorSelect } = this.props.route.params;
+    let name = this.props.route.params.name; 
+    let colorSelect = this.props.route.params.colorSelect; 
     // Set a default username in case the user didn't enter one
     // if (!user || user === '') user = 'User';
     // Display user's name in the navbar at the top of the chat screen
